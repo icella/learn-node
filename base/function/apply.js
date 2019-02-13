@@ -24,18 +24,6 @@ var xiaowang = {
 console.log("xiaowang's age " + xiaowang.age());
 console.log("xiaowang's age " + getAge.apply(xiaowang, []));
 
-/*
-
-另一个与apply()类似的方法是call()，唯一区别是：
-
-apply()把参数打包成Array再传入；
-
-call()把参数按顺序传入。
-*/
-
-//比如调用Math.max(3, 5, 4)，分别用apply()和call()实现如下：
-Math.max.apply(null, [3, 4, 5]);
-Math.max.apply(null, 3, 4, 5);
 
 // 对普通函数调用，我们通常把this绑定为null。
 
