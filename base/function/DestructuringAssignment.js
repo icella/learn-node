@@ -66,4 +66,18 @@ var x, y;
 ({x, y} = {name:'小明', x: 100, y: 200});
 
 
+//使用场景
+
+//例如，交换两个变量x和y的值，可以这么写，不再需要临时变量
+var x = 1, y = 2;
+[x, y] = [y, x];
+
+//如果一个函数接收一个对象作为参数，那么，可以使用解构直接把对象的属性绑定到变量中
+function buildDate({year, month, day, hour = 0, minute = 0, second = 0}) {
+    return new Date(year + '-' + month + '-' + day + ' ' + hour + ':' + minute
+        + ':' + second);
+}
+
+console.log(buildDate({year:2018, month:1, day: 1}).toLocaleString());
+console.log(buildDate({year:2018, month:1, day: 1, hour:20, minute:14}).toLocaleString());
 
