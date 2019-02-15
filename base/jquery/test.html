@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<script src="/Users/lla/Libs/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(function() {
+        function log(x) {
+            console.log(x);
+        }
+
+        function print() {
+            var obj={};
+            $('#test-form :input').filter(function(){
+                return (this.type !== "radio" && this.type !== 'submit') || this.checked;
+            }).map(function(){
+                obj[this.name]=this.value;
+            });
+            json =JSON.stringify(obj);
+
+            alert(json);
+        }
+
+        $('#test-form button').click(function () {
+           print();
+        });
+
+
+    });
+</script>
+<body>
+<form id="test-form" action="#0" onsubmit="return false;">
+    <p><label>Name: <input name="name"></label></p>
+    <p><label>Email: <input name="email"></label></p>
+    <p><label>Password: <input name="password" type="password"></label></p>
+    <p>Gender:
+        <label><input name="gender" type="radio" value="m" checked> Male</label>
+        <label><input name="gender" type="radio" value="f"> Female</label>
+    </p>
+    <p><label>City: <select name="city">
+        <option value="BJ" selected>Beijing</option>
+        <option value="SH">Shanghai</option>
+        <option value="CD">Chengdu</option>
+        <option value="XM">Xiamen</option>
+    </select></label></p>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>
+</body>
+</html>
